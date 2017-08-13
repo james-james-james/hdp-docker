@@ -32,4 +32,8 @@ RUN sed  -i "/^[^#]*UsePAM/ s/.*/#&/"  /etc/ssh/sshd_config
 RUN echo "UsePAM no" >> /etc/ssh/sshd_config
 
 ADD start.sh .
+ADD install-cluster.sh .
+RUN chmod +x install-cluster.sh
+RUN ./install-cluster.sh
+
 CMD ./start.sh
