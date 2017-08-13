@@ -1,3 +1,4 @@
 #!/bin/bash
 
-echo $(hostname -f)
+#echo $(hostname -f)
+echo sandbox
