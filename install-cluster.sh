@@ -15,11 +15,6 @@ EOF
 
 clear
 
-# echo "\list" >> /tmp/1.txt
-# echo "\q" >> /tmp/1.txt
-# bash -c ' su -c "psql < /tmp/1.txt" postgres'
-bash
-
 lines=1
 while [ $lines -gt 0 ]
 do
