@@ -26,7 +26,7 @@ clear
 lines=1
 while [ $lines -gt 0 ]
 do
-        sleep 15
+        sleep 20
         lines=`echo tasks | /usr/jdk64/jdk1.8.0_112/bin/java -jar /tmp/ambari-shell.jar --ambari.host=sandbox | egrep '(PENDING)|(QUEUED)|(IN_PROGRESS)' | wc -l`
         echo $lines
 done
