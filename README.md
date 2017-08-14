@@ -30,7 +30,7 @@ docker network create --subnet=172.18.0.0/16 hdpnet
 
 And then run the image with the following command:
 ```bash
-docker run -h sandbox --net hdpnet --ip 172.18.0.22 -it hdp-sandbox
+docker run -h sandbox --net hdpnet --ip 172.18.0.22 -itd hdp-sandbox
 ```
 Notice: Don't forget to add `172.18.0.22 sandbox` to your hosts file
 
