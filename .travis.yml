@@ -6,14 +6,13 @@ before_install:
   - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
   - sudo apt-get update
   - sudo apt-get -y install docker-ce
-
-before_script:
   - docker -v
 
 install:
   - docker network create --subnet=172.18.0.0/16 hdpnet1
   - travis_retry docker build --add-host=sandbox:127.0.0.1 -t sandbox .
   - travis_retry docker run -itd -h sandbox --net hdpnet1 --ip 172.18.0.22 sandbox
+
 script:
   - docker ps
   - travis_wait 5 sleep 180
