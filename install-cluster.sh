@@ -3,12 +3,12 @@
 # Start the needed services
 service postgresql start
 service ssh start
-sleep 10
+sleep 20
 
 # Start the ambari services
 ambari-server start
 ambari-agent start
-sleep 10
+sleep 20
 
 /usr/jdk64/jdk1.8.0_112/bin/java -jar /tmp/ambari-shell.jar --ambari.host=sandbox << EOF
 blueprint add --file /tmp/single-node-hdfs-yarn
@@ -35,9 +35,9 @@ if [ $amount_started -eq 0 ]; then
         echo 'services stop | /usr/jdk64/jdk1.8.0_112/bin/java -jar /tmp/ambari-shell.jar --ambari.host=sandbox'
         sleep 300
         ambari-agent stop
-        sleep 5
+        sleep 10
         ambari-server stop
-        sleep 5
+        sleep 10
 
         exit 0
 else

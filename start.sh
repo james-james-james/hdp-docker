@@ -3,7 +3,7 @@
 # Start the needed services
 service postgresql start
 service ssh start
-sleep 10
+sleep 20
 
 # Start the ambari services
 ambari-server start
@@ -12,7 +12,7 @@ sleep 20
 
 # send command to start all services
 echo 'services start' | /usr/jdk64/jdk1.8.0_112/bin/java -jar /tmp/ambari-shell.jar --ambari.host=sandbox
-sleep 20
+sleep 30
 
 # reduce time by forcing the system to leave safemode
 su -c "hdfs dfsadmin -safemode leave" hdfs
