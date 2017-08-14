@@ -13,6 +13,6 @@ before_script:
 install:
   - docker network create --subnet=172.18.0.0/16 hdpnet1
   - docker build --add-host=sandbox:127.0.0.1 -t sandbox .
-  - docker run -h sandbox --net hdpnet1 --ip 172.18.0.22 -it sandbox
+  - docker run -h sandbox --net hdpnet1 --ip 172.18.0.22 sandbox
 script:
   - docker ps | grep -q sandbox
