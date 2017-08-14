@@ -2,7 +2,7 @@
 
 ![Build status](https://api.travis-ci.org/milonimrod/hdp-docker.svg?branch=master "travis-ci build status")
 
-This is my attempt to build a simple single node [HDP](https://hortonworks.com/products/data-center/hdp/) docker container. 
+This is my attempt to build a simple single node [HDP](https://hortonworks.com/products/data-center/hdp/) docker container.
 
 The container installs the following HDP components:
 1. Hadoop
@@ -19,8 +19,22 @@ docker build --add-host=sandbox:127.0.0.1 -t hdp-sandbox .
 
 In order to run the image:
 ```bash
-docker run -p 8080:8080 -p 8088:8088 -p 8030:8030 -p 8141:8141 -p 8025:8025 -p 8050:8050 -p 8020:8020 -h sandbox -it hdp-sandbox
+docker run -h sandbox -it compass
 ```
+
+I wanted to have a static-IP to the server so I created a docker network using (Need to run once):
+
+```bash
+docker network create --subnet=172.18.0.0/16 hdpnet
+```
+
+And then run the image with the following command:
+```bash
+docker run -h sandbox --net hdpnet --ip 172.18.0.22 -it hdp-sandbox
+```
+Notice: Don't forget to add `172.18.0.22 sandbox` to your hosts file
+
+Tip: In order to access with localhost, you can map the following ports `-p 8080:8080 -p 8088:8088 -p 8030:8030 -p 8141:8141 -p 8025:8025 -p 8050:8050 -p 8020:8020`
 
 ### TODO
 1. The name _sandox_ is currently hard coded in the files
