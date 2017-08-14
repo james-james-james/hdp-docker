@@ -21,6 +21,6 @@
   </property>
   <property>
 	<name>hdp.version</name>
-	<value>2.4.3.0-227</value>
+	<value>2.6.1.0-129</value>
   </property>
 </configuration>
