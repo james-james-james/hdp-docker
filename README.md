@@ -1,6 +1,6 @@
 # hdp-docker
 
-![Build status](https://api.travis-ci.org/milonimrod/hdp-docker.svg?branch=master "travis-ci build status")
+![Build status](https://api.travis-ci.org/milonimrod/hdp-docker.svg?branch=master "travis-ci build status") - [travis-ci](https://travis-ci.org/milonimrod/hdp-docker)
 
 This is my attempt to build a simple single node [HDP](https://hortonworks.com/products/data-center/hdp/) docker container.
 
