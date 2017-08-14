@@ -25,4 +25,7 @@ docker run -p 8080:8080 -p 8088:8088 -p 8030:8030 -p 8141:8141 -p 8025:8025 -p 8
 1. Add better documentaion and code rules of conduct
 
 ### Contribute
-Please feel free to add / modify or just contact me.
+[Please see here](CONTRIBUTING.md)
+
+### Rules of conduct
+[Please see here](CODE_OF_CONDUCT.md)  
