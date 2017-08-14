@@ -12,8 +12,8 @@ before_script:
 
 install:
   - docker network create --subnet=172.18.0.0/16 hdpnet1
-  - docker build --add-host=sandbox:127.0.0.1 -t sandbox .
-  - docker run -d -h sandbox --net hdpnet1 --ip 172.18.0.22 sandbox
+  - travis_retry docker build --add-host=sandbox:127.0.0.1 -t sandbox .
+  - travis_retry docker run -d -h sandbox --net hdpnet1 --ip 172.18.0.22 sandbox
 script:
   - sleep 60;
   - docker ps | grep -q sandbox

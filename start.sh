@@ -23,4 +23,8 @@ su -c "hdfs dfs -mkdir /user/Nimrod" hdfs
 su -c "hdfs dfs -chown -R Nimrod:Nimrod /user/Nimrod" hdfs
 su -c "hdfs dfs -put /tmp/single* /user/Nimrod/" hdfs
 
-bash
+while [ 10 -gt 0 ]
+do
+  sleep 60
+  echo "stuff"
+done
