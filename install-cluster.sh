@@ -33,7 +33,7 @@ if [ $amount_started -eq 0 ]; then
         echo "done"
         # stop all services
         echo 'services stop | /usr/jdk64/jdk1.8.0_112/bin/java -jar /tmp/ambari-shell.jar --ambari.host=sandbox'
-        sleep 300
+        sleep 30
         ambari-agent stop
         sleep 10
         ambari-server stop
