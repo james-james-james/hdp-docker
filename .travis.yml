@@ -1,6 +1,9 @@
 services:
   - docker
 
+before_script:
+  - docker -v
+
 install:
   - docker build --add-host=sandbox:127.0.0.1 -t sandbox .
   - docker run -p 8080:8080 -p 8088:8088 -p 8030:8030 -p 8141:8141 -p 8025:8025 -p 8050:8050 -p 8020:8020 -h sandbox --net mynet123 --ip 172.18.0.22 -it sandbox
