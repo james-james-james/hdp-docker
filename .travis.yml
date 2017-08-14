@@ -18,5 +18,6 @@ script:
   - docker ps
   - travis_wait 5 sleep 180
   - docker ps | grep -q sandbox
+  - curl -sL -w "%{http_code}\\n" "http://172.18.0.22:8080"
   - travis_retry curl -sL -w "%{http_code}\\n" "http://172.18.0.22:8080" -o /dev/null | grep 200
   - travis_retry curl -sL -w "%{http_code}\\n" "http://172.18.0.22:8088" -o /dev/null | grep 200
