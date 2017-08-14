@@ -31,6 +31,11 @@ RUN cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
 RUN sed  -i "/^[^#]*UsePAM/ s/.*/#&/"  /etc/ssh/sshd_config
 RUN echo "UsePAM no" >> /etc/ssh/sshd_config
 
+RUN wget http://public-repo-1.hortonworks.com/HDP/ubuntu14/2.x/updates/2.6.1.0/hdp.list -O /etc/apt/sources.list.d/hdp.list
+RUN apt-get update
+RUN apt-get -y install hadoop hadoop-hdfs libhdfs0 hadoop-yarn hadoop-mapreduce hadoop-client openssl
+RUN apt-get -y install liblzo2-2 liblzo2-dev hadooplzo zookeeper
+
 ADD install-cluster.sh .
 RUN chmod +x install-cluster.sh
 RUN ./install-cluster.sh
