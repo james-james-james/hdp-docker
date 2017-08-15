@@ -22,8 +22,6 @@ RUN sed -i "/\[agent\]/ a hostname_script=\/etc\/ambari-agent\/conf\/internal-ho
 RUN sed -i "s/\"ifconfig\"/\"ifconfig eth0\"/" /usr/lib/python2.6/site-packages/ambari_agent/Facter.py
 ADD single-node-hdfs-yarn /tmp/single-node-hdfs-yarn
 
-# RUN ssh-keygen -q -N "" -t dsa -f /etc/ssh/ssh_host_dsa_key
-# RUN ssh-keygen -q -N "" -t rsa -f /etc/ssh/ssh_host_rsa_key
 RUN ssh-keygen -q -N "" -t rsa -f /root/.ssh/id_rsa
 RUN cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
 
@@ -33,6 +31,9 @@ RUN echo "UsePAM no" >> /etc/ssh/sshd_config
 
 RUN apt-get -y install hadoop hadoop-hdfs libhdfs0 hadoop-yarn hadoop-mapreduce hadoop-client openssl
 RUN apt-get -y install liblzo2-2 liblzo2-dev hadooplzo zookeeper
+
+# Set the installed java version from ambari to be the default
+RUN update-alternatives --install "/usr/bin/java" "java" "/usr/jdk64/$(ls -1 /usr/jdk64)/bin/java" 1
 
 ADD install-cluster.sh .
 RUN chmod +x install-cluster.sh
