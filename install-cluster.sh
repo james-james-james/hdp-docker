@@ -32,10 +32,14 @@ amount_started=`echo 'services list' | java -jar /tmp/ambari-shell.jar --ambari.
 if [ $amount_started -eq 0 ]; then
         echo "done"
         # stop all services
-        echo 'services stop | java -jar /tmp/ambari-shell.jar --ambari.host=sandbox'
-        sleep 30
+        echo 'services stop' | java -jar /tmp/ambari-shell.jar --ambari.host=sandbox
+        sleep 90
+
+        echo "stop ambari agent"
         ambari-agent stop
         sleep 10
+
+        echo "stop ambari server"
         ambari-server stop
         sleep 10
 
